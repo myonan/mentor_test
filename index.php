@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Login</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="loginStyle.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div class="login">
@@ -19,7 +20,7 @@
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<input type="submit" value="Login">
-				<a href="registration.php"><i class="fas fa-user-circle"></i>Don't have an account? Sign Up here!</a>
+				<a href="register.php"><i class="fas fa-user-circle"></i>Don't have an account? Sign Up here!</a>
 			</form>
 		</div>
 	</body>
