@@ -1,63 +1,69 @@
+[class*="dark"] {
+  background-color: #121212;
+  color: #e6e6e6;
+  border-color: #e6e6e6;
+}
 * {
-    box-sizing: border-box;
-    font-family: "Lucida Console", "Courier New", monospace;
-  }
+  box-sizing: border-box;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 
-  /* Style the body */
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-  }
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-  /* Header/logo Title */
-  .header {
-    padding: 80px;
-    text-align: center;
-    background:  rgb(51, 51, 51);  /* Alyssa*/
-    color: black;
-  }
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+}
 
-  /* Increase the font size of the heading */
-  .header h1 {
-    font-size: 40px;
-  }
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
 
-  /* Column container */
-  .row {  
-    display: -ms-flexbox; 
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
+/* Column container */
+.row {  
+  display: -ms-flexbox; 
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 
-  /* Create two unequal columns that sits next to each other */
-  /* Sidebar/left column */
-  .side {
-    -ms-flex: 30%; 
-    flex: 30%;
-    background-color: #635d5d;
-    padding: 20px;
-    font-size: 20px;
-  }
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  /*-ms-flex: 30%; 
+  flex: 30%;*/
+  background-color: #243133;
+  width: 200px;
+  height: 550px;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
 
-  .quote {
-    background-color: #635d5d;
-    height:125px;
-    text-align: center;
-    font-family: "Lucida Console", "Courier New", monospace;
-  }
+.quote {
+  background-color: #243133;
+  height:125px;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 
-  /* Main column */
-  .main {   
-    -ms-flex: 70%; 
-    flex: 70%;
-    background-color: rgb(51, 51, 51);
-    padding: 20px;
-  }
+/* Main column */
+.main {   
+  -ms-flex: 70%; 
+  flex: 70%;
+  padding: 20px;
+}
 
-  /* Footer */
-  .footer {
-    padding: 20px;
-    text-align: center;
-    background:  rgb(51, 51, 51);
-  }
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #243133;
+
+}
