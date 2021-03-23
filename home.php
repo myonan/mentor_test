@@ -35,7 +35,8 @@ if (!isset($_SESSION['loggedin'])) {
       <div class="side">
         <div style="height:60px;">Journal</div><br>
         <div style="height:60px;">Goals</div><br>
-        <div style="height:60px;">Email</div>
+        <div style="height:60px;">Email</div><br>
+	<a href="calendar.php"><div style="height:60px;">Calendar</div></a>
       </div>
 
       <div class="main">
