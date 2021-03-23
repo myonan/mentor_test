@@ -6,6 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
 }
+include 'functions.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ if (!isset($_SESSION['loggedin'])) {
 
     <div class="row">
       <div class="side">
-        <div style="height:60px;">Journal</div><br>
+        <div style="height:60px;"><a href="read.php"><i class="fas fa-user-circle"></i>Journal</a></div><br>
         <div style="height:60px;">Goals</div><br>
         <div style="height:60px;">Email</div>
       </div>

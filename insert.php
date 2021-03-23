@@ -17,7 +17,7 @@ $email = mysqli_real_escape_string($link, $_REQUEST['email']);
 // Attempt insert query execution
 $sql = "INSERT INTO accounts (username, password, email) VALUES ('$first_name', '$last_name', '$email')";
 if(mysqli_query($link, $sql)){
-    header("location: login.php");
+    header("location: index.php");
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
