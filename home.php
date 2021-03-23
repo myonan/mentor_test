@@ -38,7 +38,7 @@ include 'functions.php';
         <div style="height:60px;"><a href="read.php"><i class="fas fa-user-circle"></i>Journal</a></div><br>
         <div style="height:60px;">Goals</div><br>
         <div style="height:60px;">Email</div><br>
-	<a href="calendar.php"><div style="height:60px;">Calendar</div></a>
+	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
       </div>
 
       <div class="main">
