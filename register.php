@@ -25,6 +25,14 @@
             <label for="email">Email Address:</label>
             <input type="text" name="email" id="email">
         </p>
+        <p>
+            <label for="mentorname">Mentor's Name:</label>
+            <input type="text" name="mentorname" id="mentorname">
+        </p>
+        <p>
+            <label for="mentoremail">Mentor's Email:</label>
+            <input type="text" name="mentoremail" id="mentoremail">
+        </p>
         <input type="submit" value="Submit">
 
     </main>

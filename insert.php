@@ -13,9 +13,12 @@ $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $first_name = mysqli_real_escape_string($link, $_REQUEST['username']);
 $last_name = mysqli_real_escape_string($link, $_REQUEST['password']);
 $email = mysqli_real_escape_string($link, $_REQUEST['email']);
+// Mentor info
+$mentor_name = mysqli_real_escape_string($link, $_REQUEST['mentorname']);
+$mentor_email = mysqli_real_escape_string($link, $_REQUEST['mentoremail']);
  
 // Attempt insert query execution
-$sql = "INSERT INTO accounts (username, password, email) VALUES ('$first_name', '$last_name', '$email')";
+$sql = "INSERT INTO accounts (username, password, email, mentor_name, mentor_email) VALUES ('$first_name', '$last_name', '$email', '$mentor_name', '$mentor_email')";
 if(mysqli_query($link, $sql)){
     header("location: index.php");
 } else{
