@@ -79,6 +79,10 @@ $stmt->close();
         }
     }
 
+    .content{
+      text-align: center;
+    }
+
     .head{
       text-align: center;
       font-size: 20px;
@@ -133,10 +137,10 @@ $stmt->close();
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
-		<div class="content">
-			<h2>Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
-    </div>
+        <div class="content">
+          <h2>Home Page</h2>
+          <p>Welcome back, <?=$_SESSION['name']?>!</p>
+        </div>
 
     <button class="btn-toggle">Toggle Dark-Mode</button>
 
