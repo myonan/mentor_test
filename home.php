@@ -30,16 +30,105 @@ $stmt->close();
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Journal</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      
+      .col-00 {width:      none;}
+      .col-01 { width:   8.33%; }
+      .col-02 { width:  16.66%; }
+      .col-03 { width:  25.00%; }
+      .col-04 { width:  33.33%; }
+      .col-05 { width:  41.66%; }
+      .col-06 { width:  50.00%; }
+      .col-07 { width:  58.33%; }
+      .col-08 { width:  66.66%; }
+      .col-09 { width:  75.00%; }
+      .col-10 { width:  83.33%; }
+      .col-11 { width:  91.66%; }
+      .col-12 { width: 100.00%; }
+
+    body{
+      color: rgb(121, 118, 118);
+      background-color: #fff;
+    }
+      /* Dark theme colors */
+    body.dark-theme {
+      color: #eee;
+      background-color: #121212;
+    }
+
+    /* Style the body */
+    /* Styles for users who prefer dark mode */
+    @media (prefers-color-scheme: dark) {
+      /* defaults to dark theme */
+        body {
+        background-color: #121212;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #eee;
+        margin: 0;
+        }
+        /* Override dark mode with light mode styles if the user decides to swap */
+        body.light-theme {
+          color: rgb(121, 118, 118);
+          background-color: #fff;
+        }
+    }
+
+    .head{
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .menu{
+      display: inline;
+      text-align: center;
+    
+    }
+
+    .quote {
+      text-align: center;
+      font-family: "Lucida Console", "Courier New", monospace;
+    }
+
+    .foot {
+      padding: 20px;
+      text-align: center;
+    }
+
+      [class*="col-"] {
+        float:              left;
+        border-radius:      10px;
+        padding:            2%;
+      }
+
+      .row::after {
+        content:            "";
+        clear:              both;
+        display:            block;
+      }
+
+      body{
+        font-family: "Lucida Console", "Courier New", monospace;
+        font-size: 12px;
+      }
+
+      .lim {background-color: #00ff00;}
+      .yel {background-color: #ffff00;}
+      .cya {background-color: #00ffff;}
+      .mag {background-color: #152028;}
+
+      </style>
   
   </head>
   <body>
-      <div class="header">
+      <div class="row">
       <nav class="navtop">
-			<div>
-				<h1>Mentor Journal</h1>
+			  <div class="head col-12 mag"><h1>My Portal</h1></div>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
@@ -49,37 +138,45 @@ $stmt->close();
 			<p>Welcome back, <?=$_SESSION['name']?>!</p>
     </div>
 
+    <button class="btn-toggle">Toggle Dark-Mode</button>
+
     <div class="row">
-      <div class="side">
+      <div class="menu col-02 mag">
         <div style="height:60px;"><a href="read.php"><i class="fas fa-user-circle"></i>Journal</a></div><br>
         <div style="height:60px;">Goals</div><br>
         <a href="mailto:<?=$mentor_email?>"><div style="height:60px;">Email</div></a><br>
 	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
       </div>
 
-      <div class="main">
+      <div class="main col-10 mag">
         <h2>RECENT JOURNAL ENTRIES</h2>
         <h5>March 12, 2021</h5>
-        
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <p>
+            <span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
+          </p>
+      </div>
 
-        <br>
-      <div class="quote">
+      <div class="quote col-10 mag">
         <h1>INSPIRATIONAL </h1>
         <h3>"DON'T GIVE UP"</h3>
       </div>
+    </div>
       
-        <br>
-      
-        <h2>MENTOR INFORMATION</h2>
-        <h5><?=$mentor_name?></h5>
-        <p><?=$mentor_email?></p>
+    <div class="row">
+      <div class="col-02">&nbsp;</div>
+      <div class="contact col-10 mag">
+          <h2>MENTOR INFORMATION</h2>
+          <h5><?=$mentor_name?></h5>
+          <p><?=$mentor_email?></p>
       </div>
     </div>
 
-    <div class="footer">
-      <h2>Footer</h2>
+    <div class="row">
+      <div class="foot col-12 mag">
+        <h2>Footer</h2>
+      </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
