@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 .navtop {
-    background-color: #3a3a3a;
+    background-color: #3f69a8;
     height: 60px;
     width: 100%;
     border: 0;
@@ -31,6 +31,7 @@ body {
     padding: 0;
     margin: 0;
     color: #ecf0f6;
+    background-color: #243133;
     font-weight: normal;
 }
 .navtop div a {
@@ -54,7 +55,7 @@ body {
     padding: 25px 0;
     font-size: 22px;
     border-bottom: 1px solid #ebebeb;
-    color: #3a3a3a;
+    color: #243133;
 }
 .read .create-contact {
     display: inline-block;
@@ -107,7 +108,7 @@ body {
     background-color: #fbfcfc;
 }
 .read table tbody tr:hover {
-    background-color: #3a3a3a;
+    background-color: #376ab7;
 }
 .read table tbody tr:hover td {
     color: #FFFFFF;

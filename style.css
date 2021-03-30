@@ -67,3 +67,17 @@ body {
   background-color: #243133;
 
 }
+.read .create-entry a{
+  display: inline-block;
+  text-decoration: none;
+  background-color: #38b673;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+.read .create-entry:hover a{
+  background-color: #32a367;
+
+}

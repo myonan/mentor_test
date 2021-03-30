@@ -7,6 +7,7 @@
 		<link href="loginStyle.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+	<main id="main-section">
 		<div class="login">
 			<h1>Login</h1>
 
@@ -23,5 +24,6 @@
 				<a href="register.php"><i class="fas fa-user-circle"></i>Don't have an account? Sign Up here!</a>
 			</form>
 		</div>
+	</main>
 	</body>
 </html>

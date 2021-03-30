@@ -21,15 +21,16 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 ?>
 
-<?=template_header('Read')?>
-
+<?=entry_header('read')?>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 <div class="content read">
 	<h2>Read Entries</h2>
 	<a href="create.php" class="create-entry">Create Entry</a>
 	<table>
         <thead>
             <tr>
-                <td>#</td>
+                <!-- <td>#</td> -->
                 <td>Subject</td>
                 <td>Body</td>
                 <td>Created</td>
@@ -39,13 +40,13 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
         <tbody>
             <?php foreach ($entries as $entry): ?>
             <tr>
-                <td><?=$entry['id']?></td>
+                <!-- <td><?=$entry['id']?></td> -->
                 <td><?=$entry['subj']?></td>
                 <td><?=$entry['body']?></td>
                 <td><?=$entry['created']?></td>
                 <td class="actions">
-                    <a href="update.php?id=<?=$entry['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="delete.php?id=<?=$entry['id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="update.php?unique_id=<?=$entry['unique_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="delete.php?unique_id=<?=$entry['unique_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -61,4 +62,4 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 	</div>
 </div>
 
-<?=template_footer()?>
+<?=entry_footer()?>

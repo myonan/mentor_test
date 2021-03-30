@@ -24,17 +24,24 @@ $stmt->execute();
 $stmt->bind_result($mentor_name, $mentor_email);
 $stmt->fetch();
 $stmt->close();
-?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Mentor Journal</title>
+$pdo = pdo_connect_mysql();
+// Get the page via GET request (URL param: page), if non exists default the page to 1
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+// Number of records to show on each page
+$records_per_page = 5;
+$user_id = $_SESSION['id'];
+
+$stmt = $pdo->prepare("SELECT * FROM entries WHERE id=?");
+$stmt->execute([$user_id]);
+// Fetch the records so we can display them in our template.
+$entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
+?>
+<?=home_header('Home')?>
     <link href="style.css" rel="stylesheet" type="text/css" />
   
-  </head>
+  <!-- </head>
   <body>
       <div class="header">
       <nav class="navtop">
@@ -43,27 +50,47 @@ $stmt->close();
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
-		</nav>
+		</nav> -->
 		<div class="content">
-			<h2>Home Page</h2>
+			<!-- <h2>Home Page</h2> -->
 			<p>Welcome back, <?=$_SESSION['name']?>!</p>
     </div>
 
     <div class="row">
       <div class="side">
-        <div style="height:60px;"><a href="read.php"><i class="fas fa-user-circle"></i>Journal</a></div><br>
-        <div style="height:60px;">Goals</div><br>
-        <a href="mailto:<?=$mentor_email?>"><div style="height:60px;">Email</div></a><br>
-	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
+        <div style="height:60px;"><a href="read.php"><i class="fas fa-address-book"></i> Journal</a></div><br>
+        <!-- <div style="height:60px;">Goals</div><br> -->
+        <div style="height:60px;"><a href="mailto:<?=$mentor_email?>"><i class="fas fa-envelope"></i> Email</a></div><br>
+	      <div style="height:60px;"><a href="Calendar.php"><i class="fas fa-calendar"></i> Calendar</a></div><br>
       </div>
 
       <div class="main">
         <h2>RECENT JOURNAL ENTRIES</h2>
-        <h5>March 12, 2021</h5>
-        
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-
+        <table>
+        <thead>
+            <tr>
+                <!-- <td>#</td> -->
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($entries as $entry): ?>
+            <tr>
+                <td><?=$entry['subj']?></td>
+                <td><?=$entry['body']?></td>
+                <td><?=$entry['created']?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="pagination">
+		<?php if ($page > 1): ?>
+		<a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<?php endif; ?>
+		<?php if ($page*$records_per_page < $num_entries): ?>
+		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<?php endif; ?>
+	</div>
         <br>
       <div class="quote">
         <h1>INSPIRATIONAL </h1>
@@ -78,8 +105,4 @@ $stmt->close();
       </div>
     </div>
 
-    <div class="footer">
-      <h2>Footer</h2>
-    </div>
-  </body>
-</html>
+    <?=home_footer('Home')?>
