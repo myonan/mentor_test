@@ -24,6 +24,20 @@ $stmt->execute();
 $stmt->bind_result($mentor_name, $mentor_email);
 $stmt->fetch();
 $stmt->close();
+
+$pdo = pdo_connect_mysql();
+// Get the page via GET request (URL param: page), if non exists default the page to 1
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+// Number of records to show on each page
+$records_per_page = 5;
+$user_id = $_SESSION['id'];
+
+$stmt = $pdo->prepare("SELECT * FROM entries WHERE id=?");
+$stmt->execute([$user_id]);
+// Fetch the records so we can display them in our template.
+$entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -152,11 +166,21 @@ $stmt->close();
       </div>
 
       <div class="main col-10 mag">
-        <h2>RECENT JOURNAL ENTRIES</h2>
-        <h5>March 12, 2021</h5>
-        <p>
-            <span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
-          </p>
+      <?php foreach ($entries as $entry): ?>
+            <tr>
+                <td><?=$entry['subj']?></td>
+                <td><?=$entry['body']?></td>
+                <td><?=$entry['created']?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    <div class="pagination">
+		<?php if ($page > 1): ?>
+		<a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<?php endif; ?>
+		<?php if ($page*$records_per_page < $num_entries): ?>
+		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<?php endif; ?>
       </div>
 
       <div class="quote col-10 mag">
