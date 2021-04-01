@@ -51,10 +51,11 @@ $stmt->close();
       .col-11 { width:  91.66%; }
       .col-12 { width: 100.00%; }
 
-    body{
-      color: rgb(121, 118, 118);
-      background-color: #fff;
-    }
+      body{
+        color: rgb(121, 118, 118);
+        background-color: #fff;
+      }
+  
       /* Dark theme colors */
     body.dark-theme {
       color: #eee;
@@ -90,6 +91,7 @@ $stmt->close();
     .menu{
       display: inline;
       text-align: center;
+      height: 42em;
     
     }
 
@@ -99,40 +101,41 @@ $stmt->close();
     }
 
     .foot {
+      margin-top: 20px;
       padding: 20px;
       text-align: center;
     }
 
-      [class*="col-"] {
-        float:              left;
-        border-radius:      10px;
-        padding:            2%;
-      }
+    [class*="col-"] {
+      float:              left;
+      border-radius:      10px;
+      padding:            2%;
+    }
 
-      .row::after {
-        content:            "";
-        clear:              both;
-        display:            block;
-      }
+    .row::after {
+      content:            "";
+      clear:              both;
+      display:            block;
+    }
 
-      body{
-        font-family: "Lucida Console", "Courier New", monospace;
-        font-size: 12px;
-      }
+    body{
+      font-family: "Lucida Console", "Courier New", monospace;
+      font-size: 12px;
+    }
 
-      .lim {background-color: #00ff00;}
-      .yel {background-color: #ffff00;}
-      .cya {background-color: #00ffff;}
-      .mag {background-color: #152028;}
+    .lim {background-color: #00ff00;}
+    .yel {background-color: #ffff00;}
+    .cya {background-color: #00ffff;}
+    .mag {background-color: #152028;}
 
-      </style>
+  </style>
   
   </head>
   <body>
       <div class="row">
       <nav class="navtop">
 			  <div class="head col-12 mag"><h1>My Portal</h1></div>
-				<a href="profile.php" style="text-align: center;"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
@@ -150,7 +153,8 @@ $stmt->close();
         <a href="mailto:<?=$mentor_email?>"><div style="height:60px;">Email</div></a><br>
 	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
       </div>
-
+    
+      
       <div class="main col-10 mag">
         <h2>RECENT JOURNAL ENTRIES</h2>
         <h5>March 12, 2021</h5>
@@ -158,21 +162,25 @@ $stmt->close();
             <span>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
           </p>
       </div>
-
+      
+      
       <div class="quote col-10 mag">
         <h1>INSPIRATIONAL </h1>
         <h3>"DON'T GIVE UP"</h3>
       </div>
-    </div>
+
       
-    <div class="row">
-      <div class="col-02">&nbsp;</div>
       <div class="contact col-10 mag">
           <h2>MENTOR INFORMATION</h2>
           <h5><?=$mentor_name?></h5>
           <p><?=$mentor_email?></p>
       </div>
+
     </div>
+      
+    
+      
+    
 
     <div class="row">
       <div class="foot col-12 mag">
