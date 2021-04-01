@@ -132,7 +132,7 @@ $stmt->close();
       <div class="row">
       <nav class="navtop">
 			  <div class="head col-12 mag"><h1>My Portal</h1></div>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="profile.php" style="text-align: center;"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
