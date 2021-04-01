@@ -110,6 +110,7 @@ $stmt->close();
       float:              left;
       border-radius:      10px;
       padding:            2%;
+      margin:             2%;
     }
 
     .row::after {
@@ -155,7 +156,7 @@ $stmt->close();
       </div>
     
       
-      <div class="main col-10 mag">
+      <div class="main col-09 mag">
         <h2>RECENT JOURNAL ENTRIES</h2>
         <h5>March 12, 2021</h5>
         <p>
@@ -164,13 +165,13 @@ $stmt->close();
       </div>
       
       
-      <div class="quote col-10 mag">
+      <div class="quote col-09 mag">
         <h1>INSPIRATIONAL </h1>
         <h3>"DON'T GIVE UP"</h3>
       </div>
 
       
-      <div class="contact col-10 mag">
+      <div class="contact col-09 mag">
           <h2>MENTOR INFORMATION</h2>
           <h5><?=$mentor_name?></h5>
           <p><?=$mentor_email?></p>
