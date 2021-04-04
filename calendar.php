@@ -1,4 +1,17 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.php');
+	exit;
+}
+include 'functions.php';
+// Connect to MySQL database
+$pdo = pdo_connect_mysql();
+// Get the page via GET request (URL param: page), if non exists default the page to 1
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+$user_id = $_SESSION['id'];
+
 // Setting the timezone
 date_default_timezone_set('America/Phoenix');
 
@@ -19,6 +32,18 @@ if ($timestamp === false) {
 
 // Today
 $today = date('Y-m-j', time());
+// Year and Month
+$year = date('Y', $timestamp);
+$month = date('m', $timestamp);
+
+$stmt = $pdo->query("SELECT DAY(startdt) AS day, DATE_FORMAT(startdt, '%l%p') AS startt, DATE_FORMAT(enddt, '%l%p') AS endt, description FROM calendar WHERE (YEAR(startdt) = $year) AND (MONTH(startdt) = $month) AND id=$user_id");
+
+$events = array();
+while($row = $stmt->fetch()) {
+   $events[$row['day']][] = $row['description']; // might have multiple events on one day, so store as an array of events
+   $events[$row['day']][] = $row['startt'];
+   $events[$row['day']][] = $row['endt'];
+}
 
 // For the H3 title
 $html_title = date('Y / m', $timestamp);
@@ -47,8 +72,14 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
     if ($today == $date) {
         $week .= '<td class="today">' . $day;
+        if(isset($events[$day])) {
+            $week .= '<p>' . $events[$day][0] ." ". $events[$day][1] ." - ". $events[$day][2] . '</p>';
+        }
     } else {
         $week .= '<td>' . $day;
+        if(isset($events[$day])) {
+            $week .= '<p>' . $events[$day][0] ." ". $events[$day][1] ." - ". $events[$day][2] . '</p>';
+        }
     }
     $week .= '</td>';
 
@@ -88,6 +119,12 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
         }
         td {
             height: 100px;
+            width: 100px;
+        }
+        p {
+            font-size: 12px;
+            background: lightgrey;
+            color: black;
         }
         .today {
             background: orange;
