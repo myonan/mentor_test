@@ -65,10 +65,11 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
       .col-11 { width:  91.66%; }
       .col-12 { width: 100.00%; }
 
-    body{
-      color: rgb(121, 118, 118);
-      background-color: #fff;
-    }
+      body{
+        color: rgb(121, 118, 118);
+        background-color: #fff;
+      }
+  
       /* Dark theme colors */
     body.dark-theme {
       color: #eee;
@@ -104,6 +105,7 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
     .menu{
       display: inline;
       text-align: center;
+      height: 42em;
     
     }
 
@@ -113,33 +115,35 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
     }
 
     .foot {
+      margin-top: 20px;
       padding: 20px;
       text-align: center;
     }
 
-      [class*="col-"] {
-        float:              left;
-        border-radius:      10px;
-        padding:            2%;
-      }
+    [class*="col-"] {
+      float:              left;
+      border-radius:      10px;
+      padding:            2%;
+      margin:             2%;
+    }
 
-      .row::after {
-        content:            "";
-        clear:              both;
-        display:            block;
-      }
+    .row::after {
+      content:            "";
+      clear:              both;
+      display:            block;
+    }
 
-      body{
-        font-family: "Lucida Console", "Courier New", monospace;
-        font-size: 12px;
-      }
+    body{
+      font-family: "Lucida Console", "Courier New", monospace;
+      font-size: 12px;
+    }
 
-      .lim {background-color: #00ff00;}
-      .yel {background-color: #ffff00;}
-      .cya {background-color: #00ffff;}
-      .mag {background-color: #152028;}
+    .lim {background-color: #00ff00;}
+    .yel {background-color: #ffff00;}
+    .cya {background-color: #00ffff;}
+    .mag {background-color: #152028;}
 
-      </style>
+  </style>
   
   </head>
   <body>
@@ -165,7 +169,7 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
       </div>
 
-      <div class="main col-10 mag">
+      <div class="main col-09 mag">
       <?php foreach ($entries as $entry): ?>
             <tr>
                 <td><?=$entry['subj']?></td>
@@ -182,21 +186,25 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
       </div>
-
-      <div class="quote col-10 mag">
+      
+      
+      <div class="quote col-09 mag">
         <h1>INSPIRATIONAL </h1>
         <h3>"DON'T GIVE UP"</h3>
       </div>
-    </div>
+
       
-    <div class="row">
-      <div class="col-02">&nbsp;</div>
-      <div class="contact col-10 mag">
+      <div class="contact col-09 mag">
           <h2>MENTOR INFORMATION</h2>
           <h5><?=$mentor_name?></h5>
           <p><?=$mentor_email?></p>
       </div>
+
     </div>
+      
+    
+      
+    
 
     <div class="row">
       <div class="foot col-12 mag">
