@@ -1,16 +1,13 @@
 * {
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 body {
     background-color: #FFFFFF;
     margin: 0;
 }
 .navtop {
-    background-color: #243133;
+    background-color: #152028;
     height: 60px;
     width: 100%;
     border: 0;
@@ -31,7 +28,7 @@ body {
     padding: 0;
     margin: 0;
     color: #ecf0f6;
-    background-color: #243133;
+    background-color: #152028;
     font-weight: normal;
 }
 .navtop div a {
@@ -55,9 +52,8 @@ body {
     padding: 25px 0;
     font-size: 22px;
     border-bottom: 1px solid #ebebeb;
-    color: #243133;
 }
-.read .create-contact {
+.read .create-entry {
     display: inline-block;
     text-decoration: none;
     background-color: #38b673;
@@ -67,7 +63,7 @@ body {
     padding: 10px 15px;
     margin: 15px 0;
 }
-.read .create-contact:hover {
+.read .create-entry:hover {
     background-color: #32a367;
 }
 .read .pagination {
@@ -108,7 +104,7 @@ body {
     background-color: #fbfcfc;
 }
 .read table tbody tr:hover {
-    background-color: #243133;
+    background-color: #152028;
 }
 .read table tbody tr:hover td {
     color: #FFFFFF;

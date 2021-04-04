@@ -111,6 +111,7 @@ function template_header($title) {
             <nav class="navtop">
                 <div>
                     <h1>Mentor Journal</h1>
+                    <a class="btn-toggle" href="#"><i class="fas fa-lightbulb"></i></a>
                     <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
                     <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>

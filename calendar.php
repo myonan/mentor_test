@@ -105,8 +105,18 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     <meta charset="UTF-8">
     <title>Mentor Journal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="entries.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <nav class="navtop">
+            <div style="font-family: Lucida Console, Courier New, monospace">
+                <h1 style="font-family: Lucida Console, Courier New, monospace">Mentor Journal</h1>
+                <a href="home.php"><i class="fas fa-home"></i>Home</a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </div>
+        </nav>
     <style>
         .container {
+            box-sizing: border-box;
             font-family: "Lucida Console", "Courier New", monospace;
             margin-top: 80px;
         }
@@ -127,7 +137,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             color: black;
         }
         .today {
-            background: orange;
+            background: grey;
         }
         th:nth-of-type(1), td:nth-of-type(1) {
             color: red;

@@ -25,6 +25,13 @@ $stmt->bind_result($mentor_name, $mentor_email);
 $stmt->fetch();
 $stmt->close();
 
+$stmt = $con->prepare('SELECT quote, author FROM quotes ORDER BY RAND() LIMIT 1');
+// In this case we can use the account ID to get the account info.
+$stmt->execute();
+$stmt->bind_result($quote, $author);
+$stmt->fetch();
+$stmt->close();
+
 $pdo = pdo_connect_mysql();
 // Get the page via GET request (URL param: page), if non exists default the page to 1
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -39,12 +46,8 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentor Journal</title>
+
+<?=home_header('Home')?>
 
     <style>
       *{
@@ -106,6 +109,8 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
       display: inline;
       text-align: center;
       height: 42em;
+      text-decoration: none; }
+      :visited { text-decoration: none; color: #fff}
     
     }
 
@@ -147,29 +152,30 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
   
   </head>
   <body>
-      <div class="row">
-      <nav class="navtop">
-			  <div class="head col-12 mag"><h1>My Portal</h1></div>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+      <!-- <div class="row">
+      <nav class="navtop"> -->
+			  <!-- <div class="head col-12 mag"><h1>My Portal</h1></div> -->
+				<!-- <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a> -->
 			</div>
 		</nav>
         <div class="content">
           <h2>Home Page</h2>
           <p>Welcome back, <?=$_SESSION['name']?>!</p>
         </div>
-
-    <button class="btn-toggle">Toggle Dark-Mode</button>
+<!-- 
+    <button class="btn-toggle">Toggle Dark-Mode</button> -->
 
     <div class="row">
       <div class="menu col-02 mag">
-        <div style="height:60px;"><a href="read.php"><i class="fas fa-user-circle"></i>Journal</a></div><br>
-        <div style="height:60px;">Goals</div><br>
-        <a href="mailto:<?=$mentor_email?>"><div style="height:60px;">Email</div></a><br>
-	      <a href="calendar.php"><div style="height:60px;">Calendar</div></a>
+        <div style="height:60px;"><a href="read.php"><i class="fas fa-book"></i> Journal</a></div><br>
+        <div style="height:60px;"><a href=""><i class="fas fa-calendar-plus"></i> Events</a></div><br>
+        <div style="height:60px;"><a href="mailto:<?=$mentor_email?>"><i class="fas fa-envelope"></i> Email</a></div><br>
+	      <div style="height:60px;"><a href="calendar.php"><i class="fas fa-calendar"></i> Calendar</a></div><br>
       </div>
 
       <div class="main col-09 mag">
+        <div class= "content-read">
       <?php foreach ($entries as $entry): ?>
             <tr>
                 <td><?=$entry['subj']?></td>
@@ -185,12 +191,14 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 		<?php if ($page*$records_per_page < $num_entries): ?>
 		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
+    </div>
       </div>
       
       
       <div class="quote col-09 mag">
-        <h1>INSPIRATIONAL </h1>
-        <h3>"DON'T GIVE UP"</h3>
+        <h1>INSPIRATIONAL QUOTE:</h1>
+        <h3>"<?=$quote?>"</h3>
+        <h3><?=$author?></h3>
       </div>
 
       
