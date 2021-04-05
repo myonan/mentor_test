@@ -111,6 +111,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             <div style="font-family: Lucida Console, Courier New, monospace">
                 <h1 style="font-family: Lucida Console, Courier New, monospace">Mentor Journal</h1>
                 <a href="home.php"><i class="fas fa-home"></i>Home</a>
+                <a href="event.php"><i class="fas fa-calendar-plus"></i> Add Event</a>
                 <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
             </div>
         </nav>

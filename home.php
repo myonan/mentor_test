@@ -53,7 +53,8 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
       *{
         box-sizing: border-box;
       }
-      
+      a:link { text-decoration: none; color: #fff}
+      }
       .col-00 {width:      none;}
       .col-01 { width:   8.33%; }
       .col-02 { width:  16.66%; }
@@ -109,7 +110,8 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
       display: inline;
       text-align: center;
       height: 42em;
-      text-decoration: none; }
+      color: #fff;
+      text-decoration: none;  }
       :visited { text-decoration: none; color: #fff}
     
     }
@@ -169,7 +171,7 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
     <div class="row">
       <div class="menu col-02 mag">
         <div style="height:60px;"><a href="read.php"><i class="fas fa-book"></i> Journal</a></div><br>
-        <div style="height:60px;"><a href=""><i class="fas fa-calendar-plus"></i> Events</a></div><br>
+        <div style="height:60px;"><a href="event.php"><i class="fas fa-calendar-plus"></i> Events</a></div><br>
         <div style="height:60px;"><a href="mailto:<?=$mentor_email?>"><i class="fas fa-envelope"></i> Email</a></div><br>
 	      <div style="height:60px;"><a href="calendar.php"><i class="fas fa-calendar"></i> Calendar</a></div><br>
       </div>
