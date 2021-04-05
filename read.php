@@ -40,7 +40,6 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
         <tbody>
             <?php foreach ($entries as $entry): ?>
             <tr>
-                <!-- <td><?=$entry['id']?></td> -->
                 <td><?=$entry['subj']?></td>
                 <td><?=$entry['body']?></td>
                 <td><?=$entry['created']?></td>
