@@ -143,9 +143,6 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
       font-size: 12px;
     }
 
-    .lim {background-color: #00ff00;}
-    .yel {background-color: #ffff00;}
-    .cya {background-color: #00ffff;}
     .mag {background-color: #152028;}
 
   </style>
@@ -216,7 +213,15 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 
     <div class="row">
       <div class="foot col-12 mag">
-        <h2>Footer</h2>
+      <footer>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Group 8 © 2021</p>
+        </footer>
       </div>
     </div>
 
