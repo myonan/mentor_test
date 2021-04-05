@@ -176,21 +176,28 @@ $num_entries = $pdo->query('SELECT COUNT(*) FROM entries')->fetchColumn();
 
       <div class="main col-09 mag">
         <div class= "content-read">
-      <?php foreach ($entries as $entry): ?>
+          <h2>Recent Journal Entries |</h2>
+        <tbody>
+            <?php foreach ($entries as $entry): ?>
             <tr>
                 <td><?=$entry['subj']?></td>
                 <td><?=$entry['body']?></td>
                 <td><?=$entry['created']?></td>
+                <td class="actions">
+                  <br>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
-    <div class="pagination">
+    </table>
+	<div class="pagination">
 		<?php if ($page > 1): ?>
 		<a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
 		<?php if ($page*$records_per_page < $num_entries): ?>
 		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
+	</div>
     </div>
       </div>
       
