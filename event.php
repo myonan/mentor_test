@@ -30,9 +30,9 @@ if (!empty($_POST)) {
         <label for="description">Description</label>
         <input type="text" name="description" placeholder="What is going on?" id="description">
         <label for="startdt">Start Date</label>
-        <input type="date" name="startdt" id="dateinput" >
+        <input type="datetime-local" name="startdt" id="dateinput" >
         <label for="enddt">End Date</label>
-        <input type="date" name="enddt" id="dateinput" >
+        <input type="datetime-local" name="enddt" id="dateinput" >
         <input type="submit" value="Create">
     </form>
     <?php if ($msg): ?>
